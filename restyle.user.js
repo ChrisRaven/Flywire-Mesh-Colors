@@ -47,7 +47,7 @@ function main() {
 
 
 function generateCSS() {
-  return `
+  return /*css*/`
   @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500&display=swap');
   @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500&display=swap');
 
@@ -184,7 +184,6 @@ function generateCSS() {
     margin-right: 3px;
     margin-top: 12px;
     margin-bottom: 10px;
-    /* background: linear-gradient(-45deg, rgb(255 255 255), rgb(201 201 201)); */
     background-color: var(--kk-background-color-button);
     height: 19.677px;
     top: 5px;
