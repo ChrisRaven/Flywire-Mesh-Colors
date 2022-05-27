@@ -177,7 +177,6 @@ function generateCSS() {
     padding: 5px;
     color: white;
   }
-  }
 
   #path-finder-color-widget {
     border-radius: 2px;
