@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Restyle
-// @namespace    KrzysztofKruk
+// @namespace    KrzysztofKruk-FlyWire
 // @version      0.1
 // @description  Changes the look of some of the Flywire/Neuroglancer UI elements
 // @author       Krzysztof Kruk
