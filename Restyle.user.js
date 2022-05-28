@@ -1,39 +1,33 @@
 // ==UserScript==
 // @name         Restyle
-// @namespace    http://tampermonkey.net/
+// @namespace    KrzysztofKruk
 // @version      0.1
 // @description  Changes the look of some of the Flywire/Neuroglancer UI elements
 // @author       Krzysztof Kruk
 // @match        https://ngl.flywire.ai/*
 // @grant        none
+// @updateURL    https://raw.githubusercontent.com/ChrisRaven/Flywire-Restyle/main/Restyle.user.js
+// @downloadURL  https://raw.githubusercontent.com/ChrisRaven/Flywire-Restyle/main/Restyle.user.js
+// @homepageURL  https://github.com/ChrisRaven/Flywire-Restyle
 // ==/UserScript==
 
 
 
-let wait = setInterval(() => {
-  let userId = document.querySelector('#loggedInUserDropdown .nge-usercard-email')
-  if (userId) {
-    clearInterval(wait)
-    createDock(userId.textContent)
-  }
-}, 100)    
+(() => {
+  if (globalThis.dockIsReady) return main()
 
+  let script = document.createElement('script')
+  script.src = 'https://chrisraven.github.io/FlyWire-Dock/Dock.js'
+  document.head.appendChild(script)
 
-function createDock(userId) {
-  if (!document.getElementById('kk-dock')) {
-    let globalUserIdScript = document.createElement('script')
-    globalUserIdScript.text = 'globalThis.userId = "' + userId + '"'
-    document.head.appendChild(globalUserIdScript)
+  let wait = setInterval(() => {
+    if (globalThis.dockIsReady) {
+      clearInterval(wait)
+      main()
+    }
+  }, 100)
+})()
 
-    let script = document.createElement('script')
-    script.src = 'http://127.0.0.1:5501/FlyWire-Dock/Dock.js'
-    script.addEventListener('load', main)
-    document.head.appendChild(script)
-  }
-  else {
-    main()
-  }
-}
 
 function main() {
   let dock = new Dock()
@@ -41,8 +35,6 @@ function main() {
   dock.addAddon({
     css: generateCSS()
   })
-
-  test()
 }
 
 
