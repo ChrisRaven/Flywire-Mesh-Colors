@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Restyle
 // @namespace    KrzysztofKruk-FlyWire
-// @version      0.1
+// @version      0.2
 // @description  Changes the look of some of the Flywire/Neuroglancer UI elements
 // @author       Krzysztof Kruk
 // @match        https://ngl.flywire.ai/*
@@ -34,6 +34,17 @@ function main() {
 
   dock.addAddon({
     css: generateCSS()
+  })
+
+  document.getElementsByClassName('neuroglancer-layer-side-panel')[0].addEventListener('click', e => {
+    // I started with setTimeout( () => {}, 0), but looks like it's unnecessary, because of the event bubbling
+    // and the order, in which handlers are called
+    if (e.target.classList.contains('segment-copy-button')) {
+      e.target.style.backgroundColor = 'rgb(27, 62, 102)'
+    }
+    else if (e.target.parentElement.classList.contains('segment-copy-button')) {
+      e.target.parentElement.style.backgroundColor = 'rgb(27, 62, 102)'
+    }
   })
 }
 
@@ -336,6 +347,49 @@ function generateCSS() {
     position: relative;
     bottom: -12px;
     border-radius: 20px;
+  }
+
+  .overlay-content {
+    background-color: var(--color-dark-bg);
+    color: #DDD;
+    font-family: 'Roboto';
+    border-radius: 4px;
+  }
+
+  .add-layer-overlay {
+    width: 50vw;
+    padding: 30px;
+  }
+
+  .add-layer-name,
+  .add-layer-source,
+  .autocomplete-input-wrapper {
+    height: 30px;
+    border-color: var(--color-border);
+  }
+
+  .add-layer-overlay form > label {
+    height: 30px;
+    padding-top: 6px;
+  }
+  
+  .add-layer-overlay .source-form > label {
+    margin-top: 10px;
+  }
+
+  .add-layer-overlay .dialog-status {
+    font-size: 13px;
+    color: #AAA;
+    height: auto;
+    padding-top: 25px;
+  }
+
+  .add-layer-overlay .name-form button {
+    background-color: var(--kk-background-color-button);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 0 20px;
   }
   `
 }
