@@ -391,5 +391,9 @@ function generateCSS() {
     border-radius: 4px;
     padding: 0 20px;
   }
+
+  .autocomplete-input {
+    color: #777;
+  }
   `
 }
