@@ -1,14 +1,14 @@
 // ==UserScript==
 // @name         Restyle
 // @namespace    KrzysztofKruk-FlyWire
-// @version      0.2
+// @version      0.2.1
 // @description  Changes the look of some of the Flywire/Neuroglancer UI elements
 // @author       Krzysztof Kruk
 // @match        https://ngl.flywire.ai/*
 // @grant        none
-// @updateURL    https://raw.githubusercontent.com/ChrisRaven/Flywire-Restyle/main/Restyle.user.js
-// @downloadURL  https://raw.githubusercontent.com/ChrisRaven/Flywire-Restyle/main/Restyle.user.js
-// @homepageURL  https://github.com/ChrisRaven/Flywire-Restyle
+// @updateURL    https://raw.githubusercontent.com/ChrisRaven/FlyWire-Restyle/main/Restyle.user.js
+// @downloadURL  https://raw.githubusercontent.com/ChrisRaven/FlyWire-Restyle/main/Restyle.user.js
+// @homepageURL  https://github.com/ChrisRaven/FlyWire-Restyle
 // ==/UserScript==
 
 const DEV = false;
