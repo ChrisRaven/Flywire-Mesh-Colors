@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Restyle
 // @namespace    KrzysztofKruk-FlyWire
-// @version      0.2.1
+// @version      0.2.2
 // @description  Changes the look of some of the Flywire/Neuroglancer UI elements
 // @author       Krzysztof Kruk
 // @match        https://ngl.flywire.ai/*
@@ -11,13 +11,11 @@
 // @homepageURL  https://github.com/ChrisRaven/FlyWire-Restyle
 // ==/UserScript==
 
-const DEV = false;
-
 (() => {
   if (globalThis.dockIsReady) return main()
 
   let script = document.createElement('script')
-  script.src = DEV ? 'http://127.0.0.1:5501/FlyWire-Dock/Dock.js' : 'https://chrisraven.github.io/FlyWire-Dock/Dock.js'
+  script.src = typeof DEV !== 'undefined' ? 'http://127.0.0.1:5501/FlyWire-Dock/Dock.js' : 'https://chrisraven.github.io/FlyWire-Dock/Dock.js'
   document.head.appendChild(script)
 
   let wait = setInterval(() => {
